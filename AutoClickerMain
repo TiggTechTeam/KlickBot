@@ -1,0 +1,42 @@
+import java.awt.event.InputEvent;
+import java.lang.Thread;
+import java.util.Scanner;
+
+public class AutoClickerMain {
+	
+	public static void main (String []args ) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("----Auto Clicker ---");	
+		
+		System.out.println("Wie viele Clicks?: ");
+		int click = scanner.nextInt();
+		
+		
+		System.out.println("Click unterschiede in sec ");
+		int delay = scanner.nextInt();
+		System.out.println();
+		
+		System.out.println("Programm startet ");
+		
+		try {
+			Thread.sleep(3000);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		AutoClicker clicker = new AutoClicker();
+		clicker.setDelay(delay);
+		
+		for(int i = 0; i< click; i++) {
+			clicker.clickMouse(InputEvent.BUTTON1_MASK);
+		
+		}
+		
+		System.out.println("Autoclicker Fertig! ");
+		
+	}
+	
+	
+	
+}
